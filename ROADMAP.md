@@ -1,67 +1,10 @@
-User: You are maintaining an open-source team knowledge base / documentation site.
-The site is already in active use, but as different contributors have added pages and features over time, the project has grown organically. The current information architecture, user experience, and collaboration patterns are somewhat messy and inconsistent.
-
-Based on the repository snapshot provided above (code, issues, milestones, and contribution-related docs), propose a concise, high-level roadmap and milestone structure for the next phase of this documentation site.
-
-Focus on making collaboration more structured and sustainable, rather than listing every possible feature idea.
-
-Your response should:
-
-Explain why a roadmap or milestones are needed at this stage of the project (for example: messy information architecture, conflicts from parallel edits, unclear long-term direction, etc.).
-Organize upcoming work into 2–3 phases or milestones, each with clear goals, such as:
-Content and information architecture cleanup
-Editing experience and collaboration workflow improvements
-Gradual introduction of advanced capabilities like search, tags, and permissions
-Describe how these phases / milestones will help contributors stay aligned and work in parallel without blocking each other (for example: who can focus on which layer, what can be done concurrently, what requires sequencing).
-Highlight key uncertainties, dependencies, or decision points that could affect or change the roadmap (for example: whether to support multi-tenancy, whether to switch the storage backend for documents, whether to adopt a new frontend framework).
-Clearly specify what is intentionally “not now” / out of scope for this roadmap, and briefly justify why (for example: too high maintenance cost, unclear dependencies, low impact for current users).
-Output format requirements:
-
-First, provide your analysis and overall explanation in natural language (you may structure it with sections).
-Then, assume you will create a new file named ROADMAP.md at the root of the repository. At the end of your answer, output the full Markdown content of this file so it can be saved directly as the roadmap document.
-ROADMAP.md should include at least:
-Background and why a roadmap is needed now
-Phases / milestones (2–3) with goals
-Collaboration and parallel work strategy
-Key uncertainties / decision points
-Out of scope / Not now list
-Use clear Markdown headings and lists to structure the document.
-Constraints:
-
-Assume limited time and a small contributor pool; do not assume unlimited resources.
-Treat this roadmap as a living, evolving working plan, not as a fixed or final commitment.
-Ground your plan in the specific context of this repository (current documentation structure, known pain points, issues raised, etc.), rather than giving generic advice that could apply to any project.
-
-GitHub Copilot: Status: preparing a concise, repo-grounded roadmap and will add `ROADMAP.md` to the project root now. Next: create the file with the proposed milestones and measurable deliverables.
-
-Created [](file:///c%3A/Users/v-shuliu1/test/1231/oswe-mini-m23a2s165/v-ShuLiu_25_12_31_case/ROADMAP.md)
-
-## Analysis & plan — why a short roadmap is needed now ✅
-
-- The repo already contains active documentation (docs, README.md, `contributing.md`) but the structure and contributor patterns are inconsistent — this causes duplicate pages, unpredictable PRs, and poor discoverability.
-- A focused, small-team roadmap reduces friction by (1) stabilizing content, (2) making edits safe and fast, and (3) adding lightweight discovery — in that order.
-- Priorities reflect limited contributor bandwidth: clean and govern first, then improve workflow, then add search/analytics.
-
----
-
-## Roadmap (summary)
-- Phase 1 — Stabilize & Clean: inventory content, consolidate duplicates, add metadata, basic CI checks.
-- Phase 2 — Editing Experience & Collaboration: templates, `CODEOWNERS`, PR previews, CI improvements.
-- Phase 3 — Discovery & Governance: search, tags, analytics, small governance decisions.
-
-Detailed roadmap saved to ROADMAP.md at the repository root (full file content below — ready to commit).
-
----
-
-# ROADMAP.md (full content)
-
 # Documentation Site Roadmap (next phase)
 
 > Concise, prioritized plan to stabilize content, improve collaboration workflows, and add practical discovery features — designed for a small contributor team and incremental delivery. ✅
 
 ## Background — why a roadmap now
 
-- The repository has active content (docs, README.md, `contributing.md`) but the information architecture and contributor experience have grown organically and inconsistently.
+- The repository has active content (`docs/`, `README.md`, `contributing.md`) but the information architecture and contributor experience have grown organically and inconsistently.
 - Symptoms observed in this snapshot: duplicated/unclear pages, inconsistent metadata and structure, ad-hoc PRs/edits, and no clear discovery/search capability (see `issues_snapshot.md` and `contributing.md`).
 - A short, focused roadmap will reduce edit conflicts, make contributions predictable, and enable parallel work without heavy process overhead.
 
@@ -187,12 +130,4 @@ This roadmap is intended to evolve. Revisit priorities after Phase 1 and update 
 
 ---
 
-Prepared for the repository snapshot on file — small, iterative, low-risk plan to make the docs sustainable and easier to contribute to. ✨
-
----
-
-If you want, I can:
-- Commit ROADMAP.md and open a PR with the immediate Phase 1 checklist, or
-- Generate `PULL_REQUEST_TEMPLATE` and a starter `markdownlint` CI workflow next. Which should I do first?
-
-Made changes.
+*Prepared for the repository snapshot on file — small, iterative, low-risk plan to make the docs sustainable and easier to contribute to.*

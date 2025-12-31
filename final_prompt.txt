@@ -1,0 +1,33 @@
+User: You are maintaining an open-source team knowledge base / documentation site.
+The site is already in active use, but as different contributors have added pages and features over time, the project has grown organically. The current information architecture, user experience, and collaboration patterns are somewhat messy and inconsistent.
+
+Based on the repository snapshot provided above (code, issues, milestones, and contribution-related docs), propose a concise, high-level roadmap and milestone structure for the next phase of this documentation site.
+
+Focus on making collaboration more structured and sustainable, rather than listing every possible feature idea.
+
+Your response should:
+
+Explain why a roadmap or milestones are needed at this stage of the project (for example: messy information architecture, conflicts from parallel edits, unclear long-term direction, etc.).
+Organize upcoming work into 2–3 phases or milestones, each with clear goals, such as:
+Content and information architecture cleanup
+Editing experience and collaboration workflow improvements
+Gradual introduction of advanced capabilities like search, tags, and permissions
+Describe how these phases / milestones will help contributors stay aligned and work in parallel without blocking each other (for example: who can focus on which layer, what can be done concurrently, what requires sequencing).
+Highlight key uncertainties, dependencies, or decision points that could affect or change the roadmap (for example: whether to support multi-tenancy, whether to switch the storage backend for documents, whether to adopt a new frontend framework).
+Clearly specify what is intentionally “not now” / out of scope for this roadmap, and briefly justify why (for example: too high maintenance cost, unclear dependencies, low impact for current users).
+Output format requirements:
+
+First, provide your analysis and overall explanation in natural language (you may structure it with sections).
+Then, assume you will create a new file named ROADMAP.md at the root of the repository. At the end of your answer, output the full Markdown content of this file so it can be saved directly as the roadmap document.
+ROADMAP.md should include at least:
+Background and why a roadmap is needed now
+Phases / milestones (2–3) with goals
+Collaboration and parallel work strategy
+Key uncertainties / decision points
+Out of scope / Not now list
+Use clear Markdown headings and lists to structure the document.
+Constraints:
+
+Assume limited time and a small contributor pool; do not assume unlimited resources.
+Treat this roadmap as a living, evolving working plan, not as a fixed or final commitment.
+Ground your plan in the specific context of this repository (current documentation structure, known pain points, issues raised, etc.), rather than giving generic advice that could apply to any project.

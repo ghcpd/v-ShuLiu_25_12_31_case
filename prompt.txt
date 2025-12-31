@@ -1,0 +1,30 @@
+You are maintaining an existing Python backend service called "Team Reminder Service".
+
+This service provides REST APIs for teams to create users, schedule reminder jobs (e.g., daily standup reminders, deadline alerts), and send notifications via different channels. The project is functional and used by a small internal team, but it has grown organically as multiple contributors added endpoints and features over time.
+
+The codebase currently shows signs of organic growth:
+- Mixed patterns for request/response validation (some endpoints use Pydantic models, others return raw dicts).
+- Inconsistent error handling and status codes across routes.
+- Business logic is sometimes inside route handlers and sometimes in separate service functions.
+- A simple in-memory store is used in some places, while other parts assume a relational database.
+- Comments and TODOs hint at future ideas such as background workers, audit logging, multi-tenant support, and better observability.
+- Documentation and issues mention performance concerns, deployment friction, and unclear ownership of some areas.
+
+You are asked to act as a maintainer who wants to guide the next stage of development in a way that makes collaboration easier and more sustainable.
+
+Based on the repository state (code, issues, docs) provided above, propose a concise, high-level roadmap and milestone structure for the Team Reminder Service.
+
+Focus on planning for collaboration, not on listing every possible feature.
+
+Your response should:
+
+1. Explain why a roadmap or milestones are needed at this stage of the project (e.g., risks of continued ad-hoc growth, coordination pain points, inconsistent patterns, scaling concerns).
+2. Organize upcoming work into 2–3 phases or milestones, each with a clear goal (for example: stabilizing core APIs and data model, improving reliability and observability, enabling selected growth features like background jobs or multi-tenant support).
+3. Describe how these milestones help contributors stay aligned and work in parallel (e.g., which kinds of tasks fit into each phase, what can be done concurrently, what needs sequencing).
+4. Highlight key uncertainties, dependencies, or decision points that might change the roadmap (for example: database choice, authentication/authorization approach, deployment environment, SLAs).
+5. Explicitly call out a few items that are intentionally out of scope or "not now" for this roadmap, and briefly justify why (for example: too risky, unclear requirements, low impact for current users).
+
+Constraints:
+- Assume limited time and a small contributor pool; do not assume unlimited resources.
+- Treat this roadmap as a working plan that can evolve, not as a fixed or final commitment.
+- Ground your answer in the specific context and signals from this repository; avoid generic advice that could apply to any backend service.

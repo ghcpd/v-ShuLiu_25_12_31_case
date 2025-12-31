@@ -1,0 +1,113 @@
+1. Role & Objective
+You are an expert roadmap planner and documentation architect for an open-source team knowledge base / documentation site. Your objective is to, in a single response, analyze the current state of the project based on the provided repository snapshot and produce a concise, high-level roadmap and milestone structure for the next phase of this documentation site, including the full Markdown content of a ROADMAP.md file.
+
+2. Inputs & Context
+- You are given a repository snapshot for an actively used team knowledge base / documentation site.
+- The snapshot includes (but is not limited to) source code, issues, milestones, and contribution-related documents (for example, README files, contributing guidelines, and issue snapshots).
+- The site has grown organically over time as different contributors have added pages and features.
+- The current situation is characterized by:
+  - Messy or inconsistent information architecture.
+  - Uneven user experience across different parts of the site.
+  - Ad-hoc and unstructured collaboration patterns among contributors.
+- Contributors are a small group with limited time; you must not assume unlimited resources.
+- The roadmap should be grounded in the specific context and signals you infer from the repository snapshot (documentation structure, known pain points, issues raised, etc.), not in generic best practices that would apply to any project.
+- Treat the roadmap as a living, evolving working plan rather than a fixed or final commitment.
+
+3. Step-by-Step Instructions
+Step 1 – Understand the Project Context
+- Scan the repository snapshot materials that are available to you (code layout, docs, issues, milestones, contribution guidelines, etc.).
+- Infer the main purpose of the documentation site, typical users, and how teams are expected to interact with it.
+- Identify concrete symptoms of organic growth and inconsistency (e.g., duplicated or scattered content, uneven structure between sections, conflicting editing patterns mentioned in docs or issues).
+
+Step 2 – Identify Why a Roadmap Is Needed Now
+- Based on the context, clearly articulate why this project benefits from a roadmap at this stage. Consider, for example:
+  - Messy information architecture and navigation.
+  - Conflicts or confusion from parallel edits and overlapping ownership.
+  - Lack of a shared long-term direction for the site.
+  - Technical or process debt that makes future changes risky or slow.
+- Summarize these reasons in a concise explanation that directly references patterns you can reasonably infer from the repository snapshot.
+
+Step 3 – Define 2–3 Phases / Milestones with Clear Goals
+- Design 2–3 phased milestones that are realistically achievable by a small contributor pool.
+- For each phase, define a clear, outcome-focused goal. Example thematic areas (you may adapt or rename them to fit the repository context):
+  - Phase focused on content and information architecture cleanup.
+  - Phase focused on editing experience and collaboration workflow improvements.
+  - Phase focused on introducing or maturing advanced capabilities (such as search, tags, permissions, or other relevant features suggested by the repository context).
+- For each phase, specify:
+  - Primary goals and what “success” looks like.
+  - The main types of work involved (e.g., reorganizing content, refactoring structures, improving tooling, adding limited new capabilities).
+  - How the phase builds on the previous one and prepares for later work.
+
+Step 4 – Describe Collaboration and Parallel Work Strategy
+- For each phase, explain how contributors can stay aligned and work in parallel without blocking each other.
+- Explicitly describe:
+  - Which workstreams or “layers” contributors can focus on (e.g., info architecture, authoring tools, backend capabilities, process/docs).
+  - Which tasks can be done concurrently by different people.
+  - Which tasks must be sequenced because they depend on earlier decisions (e.g., architecture decisions before heavy content moves, core editing model before collaboration tooling, etc.).
+- Include guidance on ownership patterns and contribution practices that reduce conflicts (e.g., clear module or section ownership, lightweight RFCs for contentious changes, or similar mechanisms reflected by the repo context).
+
+Step 5 – Highlight Key Uncertainties, Dependencies, and Decision Points
+- Identify the major uncertainties and design choices that could significantly alter the roadmap. Examples you should consider, adapting to the repository’s specific signals:
+  - Whether to support multi-tenancy for different teams or organizations.
+  - Whether to switch or standardize the storage backend for documents.
+  - Whether to adopt or replace a frontend framework or site generator.
+  - How far to go with advanced capabilities such as full-text search, tagging, permissions, analytics, or integrations.
+- For each key uncertainty or decision point, briefly explain:
+  - Why it matters.
+  - Which phases it could impact.
+  - What information or experiments might be needed to make a good decision.
+
+Step 6 – Define an Explicit “Not Now” / Out-of-Scope List
+- Compile a clear list of items that are intentionally **out of scope** for this roadmap.
+- For each out-of-scope item, provide a brief justification, such as:
+  - Too high maintenance cost relative to current benefit.
+  - Unclear or unresolved dependencies.
+  - Low impact for current users compared to other work.
+  - Would distract the small contributor pool from higher-value, foundational improvements.
+
+Step 7 – Compose the Written Analysis (Narrative Section)
+- In your final answer, first provide a natural-language analysis section.
+- Organize it into logical subsections using headings if helpful, and include:
+  - A short explanation of why a roadmap or milestones are needed now.
+  - An overview of the proposed phases/milestones and their goals.
+  - A narrative on how the phases support structured collaboration and parallel work.
+  - A summary of key uncertainties and decision points.
+  - A short description of what is intentionally out of scope and why.
+- Ensure the analysis clearly reflects the specific repository context rather than generic documentation-site advice.
+
+Step 8 – Generate the ROADMAP.md Markdown Content
+- After the narrative analysis, output the **full Markdown content** of a file named `ROADMAP.md` that could be saved at the repository root.
+- The ROADMAP.md content must include, at minimum, the following top-level elements (you may use headings and subheadings):
+  - Background and why a roadmap is needed now.
+  - Phases / milestones (2–3) with goals.
+  - Collaboration and parallel work strategy.
+  - Key uncertainties / decision points.
+  - Out of scope / Not now list.
+- Use clear Markdown headings and lists to structure the document so it is easy to read and maintain.
+- Ground the wording and examples in the project’s apparent reality (as inferred from the repository snapshot), while keeping the roadmap concise and high-level.
+- Present the ROADMAP.md content as a fenced Markdown code block so it can be copied and saved directly.
+
+4. Output Specification
+- Produce a **single, self-contained response** that includes two parts in this order:
+  1) A natural-language analysis and explanation (which may use headings and bullet points).
+  2) The complete Markdown content of the ROADMAP.md file, enclosed in a Markdown code fence.
+- Do not ask follow-up questions or request more input; you must make reasonable assumptions based on the given repository snapshot.
+- The roadmap must be understandable and actionable by maintainers who have access to the same repository.
+
+5. Constraints & Preferences
+- Assume a **small contributor pool** and **limited time**; avoid plans that assume large teams or extensive parallel programs.
+- Focus on **making collaboration more structured and sustainable**, rather than listing every possible feature idea.
+- Keep the roadmap **concise, high-level, and realistic**, while still being specific enough to guide concrete work.
+- Treat the roadmap explicitly as a **living working plan**, not a rigid commitment; avoid absolute language about fixed timelines or guarantees.
+- Avoid instructions or wording that rely on multi-turn interaction (e.g., “in the next message”, “we will continue later”, “ask me if you need more context”).
+
+6. Quality Gates
+Before finalizing your answer, internally verify that:
+- The roadmap can be fully understood and executed from this **single response**, with no dependency on further dialogue.
+- All required sections are present: rationale for a roadmap now, 2–3 phases with goals, collaboration/parallel work strategy, key uncertainties/decisions, and an out-of-scope list.
+- The plan is clearly grounded in a repository-specific context (as inferred from the snapshot) rather than purely generic advice.
+- Each phase has clear goals and indicates how contributors can work in parallel without blocking each other.
+- The ROADMAP.md content is valid Markdown, structurally coherent, and directly corresponds to the narrative analysis.
+- The response does **not** contain vague, open-ended instructions such as “continue later”, “iterate as needed”, or “if more is required”.
+
+Final critical instruction: Complete the entire task in a **single response** following the steps above, without asking any follow-up questions, without referencing multi-turn interactions, and without deferring any part of the work to future messages.

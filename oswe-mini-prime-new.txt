@@ -1,0 +1,279 @@
+User: You are maintaining an open-source team knowledge base / documentation site.
+The site is already in active use, but as different contributors have added pages and features over time, the project has grown organically. The current information architecture, user experience, and collaboration patterns are somewhat messy and inconsistent.
+
+Based on the repository snapshot provided above (code, issues, milestones, and contribution-related docs), propose a concise, high-level roadmap and milestone structure for the next phase of this documentation site.
+
+Focus on making collaboration more structured and sustainable, rather than listing every possible feature idea.
+
+Your response should:
+
+Explain why a roadmap or milestones are needed at this stage of the project (for example: messy information architecture, conflicts from parallel edits, unclear long-term direction, etc.).
+Organize upcoming work into 2–3 phases or milestones, each with clear goals, such as:
+Content and information architecture cleanup
+Editing experience and collaboration workflow improvements
+Gradual introduction of advanced capabilities like search, tags, and permissions
+Describe how these phases / milestones will help contributors stay aligned and work in parallel without blocking each other (for example: who can focus on which layer, what can be done concurrently, what requires sequencing).
+Highlight key uncertainties, dependencies, or decision points that could affect or change the roadmap (for example: whether to support multi-tenancy, whether to switch the storage backend for documents, whether to adopt a new frontend framework).
+Clearly specify what is intentionally “not now” / out of scope for this roadmap, and briefly justify why (for example: too high maintenance cost, unclear dependencies, low impact for current users).
+Output format requirements:
+
+First, provide your analysis and overall explanation in natural language (you may structure it with sections).
+Then, assume you will create a new file named ROADMAP.md at the root of the repository. At the end of your answer, output the full Markdown content of this file so it can be saved directly as the roadmap document.
+ROADMAP.md should include at least:
+Background and why a roadmap is needed now
+Phases / milestones (2–3) with goals
+Collaboration and parallel work strategy
+Key uncertainties / decision points
+Out of scope / Not now list
+Use clear Markdown headings and lists to structure the document.
+Constraints:
+
+Assume limited time and a small contributor pool; do not assume unlimited resources.
+Treat this roadmap as a living, evolving working plan, not as a fixed or final commitment.
+Ground your plan in the specific context of this repository (current documentation structure, known pain points, issues raised, etc.), rather than giving generic advice that could apply to any project.
+
+GitHub Copilot: Let me review the repository snapshot and draft a concise, actionable 2–3 phase roadmap focused on collaboration and content hygiene. My next step is to present a short analysis and then output the full `ROADMAP.md` text ready to save.## Analysis — why a roadmap is needed now ✅
+
+- The repository shows an actively used documentation site with organic growth: multiple pages under docs, a `contributing.md`, and an `issues_snapshot.md` — signs of community use but little enforced structure.
+- Symptoms: inconsistent information architecture, uneven page quality, unclear ownership, and potential for parallel edits to conflict (many contributors but limited time).
+- A compact, phased roadmap is necessary to reduce friction, make collaboration predictable, and raise baseline quality without requiring a large team or a full rewrite.
+
+---
+
+## High-level approach
+
+- Focus on _practical, low-cost wins first_ (clean IA, templates, short contributor workflows).
+- Then improve collaboration tooling and automation (CI checks, PR templates, edit flows).
+- Finally add selective platform capabilities (search, tags, analytics) once content and workflows are stable.
+- Keep plan small, time-boxed, and reviewable every 6–8 weeks — treat the roadmap as living.
+
+---
+
+## Phases / Milestones (2–3) — concise and focused 🔧
+
+### Phase A — Stabilize content & information architecture (4–6 weeks) ✅
+Goals
+- Inventory and tidy content: identify duplicates, outdated pages, and missing metadata (use docs and `issues_snapshot.md`).
+- Create canonical structure and a minimal taxonomy (Top-level sections, page types).
+- Add lightweight content scaffolding: page templates, front-matter conventions (title, tags, owner, status).
+Deliverables
+- Content inventory (spreadsheet or issue list).
+- docs structure proposal and a small set of canonical templates.
+- A short "Style & IA guide" section in `contributing.md`.
+Why first
+- Good IA reduces future conflicts and makes automation (search/tags) meaningful.
+
+Success criteria
+- >80% pages assigned to a clear section or flagged for action, templates adopted by at least 2 contributors.
+
+---
+
+### Phase B — Improve editing experience & collaboration workflow (3–6 weeks, can overlap with A) 🔁
+Goals
+- Make contributing easy and low-risk: PR templates, issue templates, editorial checklists.
+- Add lightweight CI checks: broken link checks, basic markdown linting, and metadata validation.
+- Define roles and ownership: content stewards for sections, reviewers, maintainers.
+Deliverables
+- `pull_request_template.md`, `ISSUE_TEMPLATE.md`, `CONTRIBUTING.md` updates.
+- CI pipeline steps (GitHub Actions) for link-check and markdown lint.
+- A simple "owner" field in page front matter and a `OWNERS.md` or CODEOWNERS-like mapping for review routing.
+Parallelism & sequencing
+- While Phase A defines templates and IA, Phase B engineers can create checks and PR templates in parallel; content stewards can begin triaging content concurrently.
+
+Success criteria
+- All PRs run checks; 90% of new edits pass linter; maintainers assigned for each top-level section.
+
+---
+
+### Phase C — Introduce advanced, low-maintenance capabilities (4–8 weeks, sequenced after A/B baseline) ✨
+Goals
+- Add site-level search, tags, and basic analytics to measure what content matters most.
+- Improve discoverability and navigation patterns (tags, related pages).
+- Optional: role-based edit permissions if contributor scale/need justifies it.
+Deliverables
+- Search integration (Algolia/Meilisearch/local index), tag UI, usage dashboards (GA or privacy-friendly alternative).
+- Tagging guide and backfill plan for high-value pages.
+Dependencies & sequencing
+- Phase C depends on Phase A metadata and Phase B workflows (so tags and search are effective and maintainable).
+
+Success criteria
+- Search coverage >70% of key pages; top queries return relevant results; page tagging implemented for major sections.
+
+---
+
+## How this roadmap helps contributors work in parallel 🧭
+
+- Clear separation of concerns:
+  - Content/IA stewards: run Phase A activities (triage, templates, taxonomy).
+  - Engineers/DevOps: implement CI checks and templates in Phase B and search infra in Phase C.
+  - Contributors: continue adding content using new templates and checks; triage tasks from inventory.
+- Parallel work allowed:
+  - Phase A content triage and Phase B automation can run concurrently (different teams).
+  - Tagging backfill (Phase C) can be batched and partially automated once templates and front-matter are in place.
+- Sequencing enforced where necessary:
+  - Phase C (search/tags) scheduled after Phase A/B baseline to avoid wasted work on inconsistent metadata.
+
+---
+
+## Key uncertainties & decision points ⚠️
+
+- Search engine choice: hosted (Algolia) vs self-hosted (Meilisearch) vs built-in static index — trade-offs in cost, maintenance, and privacy.
+- Storage/backend considerations: current site appears static — if content storage needs change (dynamic editing, attachments), the roadmap changes.
+- Scope of permissions: if strict role-based controls or SSO are required, that pushes to an extended, higher-cost phase.
+- Contributor availability and hosting budget: these may limit how many phases can be done at once.
+- Frontend framework or migration decisions: a major rewrite is out-of-scope here and would require a separate project m ilestone.
+
+---
+
+## Intentionally Out of Scope / "Not Now" ❌
+
+- Full frontend rewrite or framework migration — high cost and risk; only consider if explicit need arises.
+- Enterprise-grade SSO/complex RBAC — heavy dependency on org needs and funding.
+- Multi-tenancy or large platform refactors — not needed for the immediate collaboration-focused improvements.
+- Feature bloat that doesn't directly reduce editor friction or improve discoverability (e.g., gamification, in-app tutorials).
+
+Why: small contributor pool and limited time means prioritizing high-impact, low-maintenance changes.
+
+---
+
+## Suggested cadence & governance 📆
+
+- Timebox each phase (4–8 weeks); evaluate in a short retro at the end of each phase.
+- Keep the roadmap in `ROADMAP.md` at the repo root and update after each phase milestone.
+- Use an `#docs` label and a small working group (3–5 people) with rotating stewards for each phase.
+
+---
+
+## Next steps (concrete short-term checklist) ✅
+1. Create content inventory issue (Phase A start).
+2. Draft and land minimal page templates + small taxonomy change (Phase A).
+3. Add a lightweight link-check and markdown-lint CI (Phase B).
+4. Iterate and schedule search/tag pilot for a single section (Phase C pilot).
+
+---
+
+---
+
+# ROADMAP.md (full content to save at repo root)
+
+```markdown
+# Documentation Roadmap
+
+> Concise, pragmatic roadmap to improve collaboration, quality, and discoverability of the documentation site.
+> This is a living plan — timeboxed and reviewable at the end of each milestone.
+
+---
+
+## Background — Why a roadmap now
+
+- The docs site is actively used but has grown organically and inconsistently.
+- Symptoms include: mixed information architecture, duplicated or outdated content, unclear owners, and friction in parallel edits.
+- A focused roadmap reduces editor friction, improves quality quickly, and enables safe, incremental platform improvements without a large team.
+
+---
+
+## Phases & Milestones
+
+### Phase A — Stabilize content & information architecture (4–6 weeks) ✅
+**Goals**
+- Inventory all documentation; identify duplicates, outdated pages, and missing metadata.
+- Define a minimal canonical structure (top-level sections) and taxonomy.
+- Create page templates and a brief Style & IA guide.
+
+**Deliverables**
+- Content inventory (issue or spreadsheet).
+- `docs/` structure proposal and templates.
+- `CONTRIBUTING.md` updates with quick guidelines for editors.
+
+**Success criteria**
+- Majority of pages assigned to a section or flagged for action; templates adopted by contributors.
+
+---
+
+### Phase B — Improve editing experience & collaboration workflow (3–6 weeks) 🔁
+**Goals**
+- Lower friction for contributors by adding PR/issue templates and lightweight checks.
+- Define ownership (section stewards) and review routing.
+- Automate simple validations (link checks, markdown lint, front-matter checks).
+
+**Deliverables**
+- `pull_request_template.md`, `ISSUE_TEMPLATE.md`, updates to `CONTRIBUTING.md`.
+- GitHub Actions (or equivalent) for link-check and markdown lint.
+- `OWNERS.md` or `CODEOWNERS` mapping.
+
+**Success criteria**
+- PRs run checks; editorial linter prevents common errors; section stewards assigned.
+
+---
+
+### Phase C — Introduce search, tags, and analytics (4–8 weeks) ✨
+**Goals**
+- Improve discoverability with search and tagging.
+- Add basic usage analytics to prioritize further work.
+- Pilot features on a single section before adoption across all docs.
+
+**Deliverables**
+- Search integration (Algolia/Meilisearch/static index).
+- Tagging UI and backfill plan for high-value pages.
+- Simple analytics dashboards to guide priorities.
+
+**Success criteria**
+- Search provides relevant results for common queries; tags used on major pages.
+
+---
+
+## Collaboration & Parallel Work Strategy
+
+- Roles:
+  - Content stewards: triage content, own sections.
+  - Engineers: implement CI and infra (link check, search).
+  - Contributors: write and update content using templates.
+
+- Parallelism:
+  - Phase A and B can be executed in parallel by different people (content triage vs CI/tooling).
+  - Tagging and search pilots should wait until templates and metadata conventions are stable.
+
+- Governance:
+  - Timebox and evaluate at the end of each phase (6–8 week cadence).
+  - Keep `ROADMAP.md` and `CONTRIBUTING.md` up-to-date after each milestone.
+
+---
+
+## Key uncertainties & decision points
+
+- Search: hosted vs self-hosted vs static indexing — affects cost and maintenance.
+- Backend needs: current static approach may suffice; dynamic editing or attachments might require re-evaluation.
+- Permissions & SSO: only add if clear need and funding.
+- Team availability & hosting budget will affect pace and scope.
+
+---
+
+## Out of scope / Not now
+
+- Full site/frontend rewrite — high cost and risk.
+- Enterprise SSO and complex RBAC.
+- Multi-tenancy or broad platform-level refactor.
+- Low-impact features (e.g., gamification) that don't reduce editorial friction.
+
+---
+
+## Quick start checklist (first 4 weeks)
+
+1. Create a content inventory issue and assign owners to top-level sections. 🔍  
+2. Add minimal page templates and a short IA guide to `CONTRIBUTING.md`. 📝  
+3. Add simple GitHub Actions: markdown-lint and a link-check step. ⚙️  
+4. Run a small pilot search/tag feature on one section after metadata stabilizes. 🔬
+
+---
+
+## Notes
+
+- This is a pragmatic, resource-aware plan focused on enabling contributors to work in parallel and safely.
+- Re-evaluate after each phase and update this `ROADMAP.md` to reflect learnings and constraints.
+
+---
+```
+
+---
+
+If you'd like, I can create `ROADMAP.md` in the repo now or open a PR draft with the content and CI suggestions. Which would you prefer? 🔧
